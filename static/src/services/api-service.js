@@ -42,7 +42,10 @@ export const deleteApi = (url, userData) => {
 
 const request = ({ method, url, data }, userData) => {
   return new Promise((res, rej) => {
-    if (userData && Object.keys(userData).length || url.indexOf('login') !== -1) {
+    if (
+      (userData && Object.keys(userData).length) ||
+      url.indexOf("login") !== -1
+    ) {
       url = `${PREFIX}${url}`;
       axios({
         method,
@@ -50,7 +53,7 @@ const request = ({ method, url, data }, userData) => {
         data: { ...data, userData },
         headers: {
           "Content-Type": "application/json",
-          authorization: 'Bearer sample-token',
+          authorization: "Bearer sample-token",
         },
       })
         .then((response) => {

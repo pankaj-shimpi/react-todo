@@ -17,7 +17,7 @@ const App = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  userData: state.userData,
+  userData: state.userReducers.userData,
 });
 
 export default connect(mapStateToProps, null)(App);

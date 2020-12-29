@@ -48,8 +48,8 @@ const Login = (props) => {
     setLoading(true);
     login("/login", { email, password })
       .then((res) => {
-        setLoading(false);
         props.setUser(res);
+        setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
@@ -126,12 +126,8 @@ const Login = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return state;
-};
-
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ setUser: actions.setUser }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);
